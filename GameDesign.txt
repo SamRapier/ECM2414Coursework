@@ -1,0 +1,65 @@
+
+
+
+> Black Bag Class
+	- Constructor
+		+ Create a bag with 11*numPlayers of pebbles
+		+ enter the location of the file containing pebble weights
+		+ 
+		+ (Return to this)
+
+	- RemovePebbles
+	- LoadPebbles
+		+ open the pebble file, 
+	- replenishPebbles
+	- Save pebbles to file
+	- getTotalNumPebbles
+	
+
+> White Bag Class
+	- Constructor
+	- Add pebble
+	- get all pebbles
+	- remove all pebbles
+		+ make the white bag file blank
+
+
+> Player class
+	- Constructor
+		+ draw from bag 10 times
+		+ save hand to file
+		
+	- Draw from bag
+		+ randomly take a pebble from bag
+		+ add pebble to end of file
+	- remove from hand
+		+ find the pebble in the file, remove it from file
+	- check total weight
+		+ add up total weight of pebbles in hand
+	- save hand	
+		
+
+> Game class
+	- Constructor
+		+ Set up the 3 black bags
+		+ Set up the 3 white bags
+		
+	- Game loop
+		+ Set up game
+			- for each player draw from bag 10 times
+			- check total weight
+ 
+		+ ask player what to discard
+			- choose bag to discard to
+
+		+ ask player what bag to draw from
+			- check total weight
+
+			- check to see if bag is empty
+				- replenish if empty
+
+			 
+
+
+
+	
