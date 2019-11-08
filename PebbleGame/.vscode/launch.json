@@ -1,0 +1,10 @@
+{
+	"configurations": [
+		{
+			"type": "java",
+			"name": "CodeLens (Launch) - Bag",
+			"request": "launch",
+			"mainClass": "Bag"
+		}
+	]
+}
