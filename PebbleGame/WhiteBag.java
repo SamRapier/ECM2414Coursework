@@ -1,6 +1,6 @@
 public class WhiteBag extends Bag{
 	private String fileLocation;
-	private String[] pebbleArr;
+	// private String[] pebbleArr;
 
 	public WhiteBag(int bagNum){
 		Scanner sc = new Scanner(System.in);
@@ -17,7 +17,12 @@ public class WhiteBag extends Bag{
 		tmpArr[-1] = String.parseString(newPebbleWeight);
 		pebbleArr = tmpArr;
 
-		savePebbles(fileLocation, pebbleArr);
+		savePebbles(fileLocation);
+	}
+
+	public void removeAllPebbles(){
+		pebbleArr = new String[0];
+		savePebbles(fileLocation);
 	}
 
 	

@@ -9,13 +9,14 @@ import java.util.*;
 
 public class Bag
 {
+	String[] pebbleArr;
 	
     public Bag()
     {
-
+		// pebbleArr = new String[0];
     }
 
-    public static String[] loadPebbles(String fileName){
+    public loadPebbles(String fileName){
         File file = new File(fileName);      
         List<String> lines = new ArrayList<>();
         Scanner inputStream;
@@ -34,16 +35,15 @@ public class Bag
             e.printStackTrace();
         }
 
-        String[] pebbleArr = new String[lines.size()];
+        pebbleArr = new String[lines.size()];
 		int columnNo = 0;
 		for (String value: lines) {
 			pebbleArr[columnNo] = value;
 			columnNo++;                
 		}
-		return pebbleArr;
     }
     
-    public static void savePebbles(String fileName, String[] pebbleArr) {
+    public void savePebbles(String fileName) {
 		try {		
 			String str = "";
 			for (int i = 0; i < pebbleArr.length; i++){

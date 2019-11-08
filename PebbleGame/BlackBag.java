@@ -9,7 +9,7 @@ public class BlackBag extends Bag
 {
     private int bagNum;
     private String fileLocation;
-	private String[] pebbleArr;
+	// private String[] pebbleArr;
     
     public BlackBag(int numPlayers, int bagNum){
         this.numPebbles = numPlayers * 11;
@@ -20,7 +20,7 @@ public class BlackBag extends Bag
         fileLocation = scan.nextLine();
 		sc.close();
 
-		this.pebbleArr = loadPebbles(fileLocation);
+		loadPebbles(fileLocation);
         
     }
        
