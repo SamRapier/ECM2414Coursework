@@ -1,4 +1,5 @@
  import java.util.Scanner;
+ import java.util.Random;
 /**
  * Write a description of class BlackBag here.
  *
@@ -12,29 +13,24 @@ public class BlackBag extends Bag
 	// private String[] pebbleArr;
     
     public BlackBag(int numPlayers, int bagNum){
-        this.numPebbles = numPlayers * 11;
         this.bagNum = bagNum;
 		
         Scanner sc = new Scanner(System.in);
         System.out.printf("Enter location of bag number to %d load: ", bagNum);
-        fileLocation = scan.nextLine();
+        fileLocation = sc.nextLine();
 		sc.close();
 
 		loadPebbles(fileLocation);
         
     }
        
-    public void removePebble(int weight){
-		String[] tmpArr = new String[pebbleArr.length - 1];
-		int count = 0;
+    public int takeRandPebble(){
+		Random random = new Random();
+		int rnd = random.nextInt(pebbleArr.size());
+		int randomWeight = pebbleArr.get(rnd);
 
-		for (int i = 0; i < pebbleArr.length; i++){			
-			if(pebbleArr[i] != String.parseString(weight)){
-				tmpArr[count] = pebbleArr[i];
-				count++;
-			}
-		}
-		pebbleArr = tmpArr;
+		pebbleArr.remove(rnd);
+		return randomWeight;
 	}
        
     
@@ -43,5 +39,5 @@ public class BlackBag extends Bag
 	}
     
     
-    public int getTotalNumPebbles(){ return pebbleArr.length; }
+    public int getTotalNumPebbles(){ return pebbleArr.size(); }
 }
