@@ -30,7 +30,7 @@ public class BlackBag extends Bag
         
     }
        
-    public int takeRandPebble(){
+    public int takeRandomPebble(){
 		Random random = new Random();
 		int rnd = random.nextInt(pebbleArr.size());
 		int randomWeight = pebbleArr.get(rnd);

@@ -20,7 +20,7 @@ public class Player{
         }
     }
     public void drawFromBag(BlackBag bBag){
-        playerPebbles.add(bBag.takeRandPebble());
+        playerPebbles.add(bBag.takeRandomPebble());
     }
     public void removePebble(int weight, WhiteBag wBag){
         wBag.addPebble(weight);

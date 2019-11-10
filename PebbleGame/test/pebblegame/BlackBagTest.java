@@ -28,14 +28,14 @@ public class BlackBagTest {
     }
 
     /**
-     * Test of takeRandPebble method, of class BlackBag.
+     * Test of takeRandomPebble method, of class BlackBag.
      */
     @Test
-    public void testTakeRandPebble() {
-        System.out.println("takeRandPebble");
+    public void testTakeRandomPebble() {
+        System.out.println("takeRandomPebble");
         BlackBag instance = null;
         int expResult = 0;
-        int result = instance.takeRandPebble();
+        int result = instance.takeRandomPebble();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
