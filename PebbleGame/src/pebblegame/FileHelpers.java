@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package pebblegame;
 
 import java.io.BufferedWriter;
@@ -18,18 +13,20 @@ import java.util.Scanner;
  *
  * @author samra
  */
-public class Bag
+public class FileHelpers
 {
-    List<Integer> pebbleArr = new ArrayList<>();
-	//String[] pebbleArr;
-	
-    public Bag()
-    {
+    String fileName;
+    
+    public FileHelpers(){}
+    
+    public FileHelpers(String fileName){
+        this.fileName = fileName;
     }
 
-    public void loadPebbles(String fileName){
+    public List loadPebbles(){
         File file = new File(fileName);      
-        Scanner inputStream;       
+        Scanner inputStream;
+        List<Integer> pebbleArr = new ArrayList<>();       
 
         try{
             inputStream = new Scanner(file);
@@ -53,12 +50,17 @@ public class Bag
         }catch (FileNotFoundException e) {
             System.err.println(e);
         }
+
+        return pebbleArr;
     }
     
-    public void savePebbles(String fileName) {		
+    public void savePebbles(List<Integer> arr) {		
         String str = "";
-        for (int i = 0; i < pebbleArr.size(); i++){
-                str += pebbleArr.get(i) + ", ";
+        if (arr.size() > 0){
+            for (int i = 0; i < arr.size() -1; i++){
+                    str += arr.get(i) + ", ";
+            }
+            str += arr.get(arr.size() - 1);
         }
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {

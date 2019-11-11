@@ -1,10 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package pebblegame;
 
+import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -12,38 +8,42 @@ import java.util.Scanner;
  *
  * @author samra
  */
-public class BlackBag extends Bag
+public class BlackBag extends FileHelpers implements BlackBagInterface
 {
-    private int bagNum;
-    private String fileLocation;
-	// private String[] pebbleArr;
-    
-    public BlackBag(int numPlayers, int bagNum){
-        this.bagNum = bagNum;
-		
-        Scanner sc = new Scanner(System.in);
-        System.out.printf("Enter location of bag number to %d load: ", bagNum);
-        fileLocation = sc.nextLine();
-		sc.close();
+    // private String fileLocation;
+    // private String[] pebbleArr;
 
-		loadPebbles(fileLocation);
-        
+    public BlackBag(int numPlayers, int bagNum){		
+        super();
+        try (Scanner sc = new Scanner(System.in)) {
+            System.out.printf("Enter location of bag number to %d load: ", bagNum);
+            fileName = sc.nextLine();
+
+        } catch (Exception e){
+            System.err.println(e);
+        }
     }
-       
-    public int takeRandomPebble(){
-		Random random = new Random();
-		int rnd = random.nextInt(pebbleArr.size());
-		int randomWeight = pebbleArr.get(rnd);
+    
+    @Override
+    public int takeRandomPebble(){    
+        List<Integer> pebbleArr = loadPebbles();
+        Random random = new Random();
 
-		pebbleArr.remove(rnd);
-		return randomWeight;
-	}
-       
+        int rnd = random.nextInt(pebbleArr.size());
+        int randomWeight = (int) pebbleArr.remove(rnd);
+
+        savePebbles(pebbleArr);
+        return randomWeight;
+    }
     
+    @Override
     public void replenishPebbles(){
-		
-	}
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
-    
-    public int getTotalNumPebbles(){ return pebbleArr.size(); }
+    @Override
+    public int getTotalNumPebbles() {
+        List<Integer> arr = loadPebbles();
+        return arr.size();
+    }
 }

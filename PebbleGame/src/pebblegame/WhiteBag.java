@@ -1,35 +1,36 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package pebblegame;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 /**
  *
  * @author samra
  */
-public class WhiteBag extends Bag{
-	private String fileLocation;
+public class WhiteBag extends FileHelpers implements WhiteBagInterface{
+	// private String fileLocation;
 	// private String[] pebbleArr;
 
 	public WhiteBag(int bagNum){
             Scanner sc = new Scanner(System.in);
             System.out.printf("Enter location of bag number %d to load: ", bagNum);
-            fileLocation = sc.nextLine();
+            fileName = sc.nextLine();
             sc.close();
 	}
 
+	@Override
 	public void addPebble(int newPebbleWeight){
+		List<Integer> pebbleArr = loadPebbles();
 		pebbleArr.add(newPebbleWeight);
-		savePebbles(fileLocation);
+		savePebbles(pebbleArr);
 	}
 
+	@Override
 	public void removeAllPebbles(){
 		// remove all from pebbleArr
-		savePebbles(fileLocation);
+		List<Integer> pebbleArr = new ArrayList<Integer>();
+		savePebbles(pebbleArr);
 	}
 
 	

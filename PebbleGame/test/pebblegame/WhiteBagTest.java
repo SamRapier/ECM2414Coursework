@@ -1,10 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package pebblegame;
 
+import java.util.ArrayList;
+import java.util.List;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -33,11 +30,14 @@ public class WhiteBagTest {
     @Test
     public void testAddPebble() {
         System.out.println("addPebble");
-        int newPebbleWeight = 0;
-        WhiteBag instance = null;
+        int newPebbleWeight = 15;
+        MockWhiteBag instance = new MockWhiteBag(1);
         instance.addPebble(newPebbleWeight);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
+        List<Integer> pebbleArr = instance.loadPebbles();
+        int result = pebbleArr.get(pebbleArr.size() - 1);
+
+        assertEquals(newPebbleWeight, result);
     }
 
     /**
@@ -46,10 +46,18 @@ public class WhiteBagTest {
     @Test
     public void testRemoveAllPebbles() {
         System.out.println("removeAllPebbles");
-        WhiteBag instance = null;
+        MockWhiteBag instance = new MockWhiteBag(1);
+        
+        List<Integer> pebbleArr = instance.loadPebbles();
+
         instance.removeAllPebbles();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
+        List<Integer> result = instance.loadPebbles();
+        System.out.println(result);
+
+        assertEquals(0, result.size());
+        instance.savePebbles(pebbleArr);
     }
     
 }
+ 

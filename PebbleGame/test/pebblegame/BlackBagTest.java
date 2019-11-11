@@ -1,10 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package pebblegame;
 
+import java.util.ArrayList;
+import java.util.List;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -28,17 +25,21 @@ public class BlackBagTest {
     }
 
     /**
-     * Test of takeRandomPebble method, of class BlackBag.
+     * Test of takeRandomPebble method, of class BlackBag.  
      */
     @Test
     public void testTakeRandomPebble() {
         System.out.println("takeRandomPebble");
-        BlackBag instance = null;
-        int expResult = 0;
+        MockBlackBag instance = new MockBlackBag(1, 1);
+        
+        // The 4th item in the file is 15
+        int expResult = 15;
+
+        List<Integer> pebbleArr = new ArrayList<>();
+        pebbleArr = instance.loadPebbles();              
+        
         int result = instance.takeRandomPebble();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -47,7 +48,8 @@ public class BlackBagTest {
     @Test
     public void testReplenishPebbles() {
         System.out.println("replenishPebbles");
-        BlackBag instance = null;
+        MockBlackBag instance = new MockBlackBag(1, 1);
+
         instance.replenishPebbles();
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
@@ -59,12 +61,10 @@ public class BlackBagTest {
     @Test
     public void testGetTotalNumPebbles() {
         System.out.println("getTotalNumPebbles");
-        BlackBag instance = null;
-        int expResult = 0;
+        MockBlackBag instance = new MockBlackBag(1, 1);
+        int expResult = 7;
         int result = instance.getTotalNumPebbles();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
     
 }
