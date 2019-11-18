@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - PebbleGame",
+            "request": "launch",
+            "mainClass": "src.pebblegame.PebbleGame",
+            "projectName": "ECM2414Coursework_5241020e"
+        }
+    ]
+}
