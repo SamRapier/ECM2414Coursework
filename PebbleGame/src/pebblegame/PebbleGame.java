@@ -21,9 +21,11 @@ public class PebbleGame {
      */
     public static void main(String[] args) {     
         
+		// Make arrays of each of the Bag objects
         BlackBag[] bBags = new BlackBag[3];
         WhiteBag[] wBags = new WhiteBag[3];
-        // int numPlayers = askNumPlayers();
+
+		// initialise numPlayers and doneFlag
         int numPlayers = 0;
 		AtomicBoolean doneFlag = new AtomicBoolean(false);
 
@@ -32,13 +34,17 @@ public class PebbleGame {
             System.out.print("How many players are in the game: ");
             numPlayers = Integer.parseInt(input.readLine());
 
+			// loop 3 times for 3 bags of each type
             for (int i = 0; i < 3; i++){
                 System.out.print("Enter location of bag number to " + i + " load: ");
                 String fileName = input.readLine();
-				if (fileName.toUpperCase() == "E"){
-					exit();
-				}
 
+				// exit the program is user entered an 'E'
+				if (fileName.toUpperCase() == "E"){
+                                    System.exit(0);
+                                }
+
+				// contruct the objects for each of the bags
                 bBags[i] = new BlackBag(numPlayers, fileName, i);
                 wBags[i] = new WhiteBag(i);
             }
@@ -47,16 +53,13 @@ public class PebbleGame {
                 System.err.println(e);
         }
 
-        // make an array for the players
-        // Player[] players = new Player[numPlayers];
-
-        // Do threading here 
-
-        Random rand = new Random();
+		Random rand = new Random();
+		// loop for each of the players create a new player and load the pebbles from a randomly
+		// chosen bag
         for (int i = 0; i < numPlayers; i++){
             int chosenBag = rand.nextInt(3);
-            // players[i] = new Player(bBags[chosenBag], i);
 
+			// create the thread object and start it
             Thread object = new Thread(new Player(chosenBag, i, bBags, wBags, doneFlag));
             object.start();
         }
@@ -65,7 +68,7 @@ public class PebbleGame {
 
 
     public static class Player extends FileHelpers implements Runnable{
-        // private List<Integer> playerPebbles = new ArrayList<>();
+        // 
         final String FILE_STORAGE_LOCATION, FILE_OUTPUT_LOCATION;
         public int playerNum;
         BlackBag[] bBags;

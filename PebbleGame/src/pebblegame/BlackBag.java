@@ -21,6 +21,7 @@ public class BlackBag extends FileHelpers implements BlackBagInterface
     char bagLetter;
 
     public BlackBag(int numPlayers, String rangeFileName, int bagNum){	
+		// Works out the letter for the black bag
         if (bagNum == 0){
             bagLetter = 'X';
         } else if (bagNum == 1){
@@ -29,20 +30,27 @@ public class BlackBag extends FileHelpers implements BlackBagInterface
             bagLetter = 'Z';
         }
 
+		// Initialises some lists
         List<Integer> weightRange = new ArrayList<>();
         List<Integer> blackBagPebbles = new ArrayList<>();
 
+		// loads the file for pebble range
         weightRange = loadPebbles(rangeFileName);
+
+		// sets the file location using the bag letter
         STORAGE_FILE_LOCATION = "bBag"+bagLetter+"_file.csv";
 		emptyFile(STORAGE_FILE_LOCATION);
 
 
         Random rand = new Random();
 
+		// adds the correct number of pebbles to the black bag,
+		// randomly chooses the pebbles from the range file
         for (int i =0; i <= 11*numPlayers -1; i++){
-                blackBagPebbles.add(weightRange.get(rand.nextInt(weightRange.size())));
+			blackBagPebbles.add(weightRange.get(rand.nextInt(weightRange.size())));
         }
 
+		// saves the black bag to the file
         savePebbles(blackBagPebbles, STORAGE_FILE_LOCATION);
     }
     
