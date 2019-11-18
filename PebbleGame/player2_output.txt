@@ -1,0 +1,114 @@
+player2 has drawn a 3 from bag Y
+player2 hand is [3]
+
+player2 has drawn a 4 from bag Y
+player2 hand is [3, 4]
+
+player2 has drawn a 11 from bag Y
+player2 hand is [3, 4, 11]
+
+player2 has drawn a 4 from bag Y
+player2 hand is [3, 4, 11, 4]
+
+player2 has drawn a 1 from bag Y
+player2 hand is [3, 4, 11, 4, 1]
+
+player2 has drawn a 13 from bag Y
+player2 hand is [3, 4, 11, 4, 1, 13]
+
+player2 has drawn a 21 from bag Y
+player2 hand is [3, 4, 11, 4, 1, 13, 21]
+
+player2 has drawn a 22 from bag Y
+player2 hand is [3, 4, 11, 4, 1, 13, 21, 22]
+
+player2 has drawn a 22 from bag Y
+player2 hand is [3, 4, 11, 4, 1, 13, 21, 22, 22]
+
+player2 has drawn a 2 from bag Y
+player2 hand is [3, 4, 11, 4, 1, 13, 21, 22, 22, 2]
+
+player2 has discarded a 22 to bag B
+player2 hand is [3, 4, 11, 4, 1, 13, 21, 22, 2]
+
+player2 has drawn a 15 from bag Z
+player2 hand is [3, 4, 11, 4, 1, 13, 21, 22, 2, 15]
+
+player2 has discarded a 15 to bag C
+player2 hand is [3, 4, 11, 4, 1, 13, 21, 22, 2]
+
+player2 has drawn a 6 from bag Z
+player2 hand is [3, 4, 11, 4, 1, 13, 21, 22, 2, 6]
+
+player2 has discarded a 4 to bag C
+player2 hand is [3, 11, 4, 1, 13, 21, 22, 2, 6]
+
+player2 has drawn a 15 from bag Y
+player2 hand is [3, 11, 4, 1, 13, 21, 22, 2, 6, 15]
+
+player2 has discarded a 15 to bag B
+player2 hand is [3, 11, 4, 1, 13, 21, 22, 2, 6]
+
+player2 has drawn a 8 from bag Z
+player2 hand is [3, 11, 4, 1, 13, 21, 22, 2, 6, 8]
+
+player2 has discarded a 11 to bag C
+player2 hand is [3, 4, 1, 13, 21, 22, 2, 6, 8]
+
+player2 has drawn a 6 from bag Z
+player2 hand is [3, 4, 1, 13, 21, 22, 2, 6, 8, 6]
+
+player2 has discarded a 1 to bag C
+player2 hand is [3, 4, 13, 21, 22, 2, 6, 8, 6]
+
+player2 has drawn a 20 from bag X
+player2 hand is [3, 4, 13, 21, 22, 2, 6, 8, 6, 20]
+
+player2 has discarded a 20 to bag A
+player2 hand is [3, 4, 13, 21, 22, 2, 6, 8, 6]
+
+player2 has drawn a 13 from bag X
+player2 hand is [3, 4, 13, 21, 22, 2, 6, 8, 6, 13]
+
+player2 has discarded a 22 to bag A
+player2 hand is [3, 4, 13, 21, 2, 6, 8, 6, 13]
+
+player2 has drawn a 8 from bag Z
+player2 hand is [3, 4, 13, 21, 2, 6, 8, 6, 13, 8]
+
+player2 has discarded a 13 to bag C
+player2 hand is [3, 4, 21, 2, 6, 8, 6, 13, 8]
+
+player2 has drawn a 9 from bag X
+player2 hand is [3, 4, 21, 2, 6, 8, 6, 13, 8, 9]
+
+player2 has discarded a 6 to bag A
+player2 hand is [3, 4, 21, 2, 8, 6, 13, 8, 9]
+
+player2 has drawn a 9 from bag Y
+player2 hand is [3, 4, 21, 2, 8, 6, 13, 8, 9, 9]
+
+player2 has discarded a 21 to bag B
+player2 hand is [3, 4, 2, 8, 6, 13, 8, 9, 9]
+
+player2 has drawn a 10 from bag X
+player2 hand is [3, 4, 2, 8, 6, 13, 8, 9, 9, 10]
+
+player2 has discarded a 2 to bag A
+player2 hand is [3, 4, 8, 6, 13, 8, 9, 9, 10]
+
+player2 has drawn a 9 from bag Z
+player2 hand is [3, 4, 8, 6, 13, 8, 9, 9, 10, 9]
+
+player2 has discarded a 8 to bag C
+player2 hand is [3, 4, 6, 13, 8, 9, 9, 10, 9]
+
+player2 has drawn a 12 from bag Z
+player2 hand is [3, 4, 6, 13, 8, 9, 9, 10, 9, 12]
+
+player2 has discarded a 8 to bag C
+player2 hand is [3, 4, 6, 13, 9, 9, 10, 9, 12]
+
+player2 has drawn a 25 from bag X
+player2 hand is [3, 4, 6, 13, 9, 9, 10, 9, 12, 25]
+

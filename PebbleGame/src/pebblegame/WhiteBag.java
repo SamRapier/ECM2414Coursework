@@ -12,27 +12,25 @@ public class WhiteBag extends FileHelpers implements WhiteBagInterface{
 	// private String fileLocation;
 	// private String[] pebbleArr;
 
+	final String STORAGE_FILE_LOCATION;
+	char bagLetter;
+
 	public WhiteBag(int bagNum){
-            Scanner sc = new Scanner(System.in);
-            System.out.printf("Enter location of bag number %d to load: ", bagNum);
-            fileName = sc.nextLine();
-            sc.close();
+		if (bagNum == 0){
+            bagLetter = 'A';
+        } else if (bagNum == 1){
+            bagLetter = 'B';
+        } else if (bagNum == 2) {
+            bagLetter = 'C';
+        }
+		STORAGE_FILE_LOCATION = "wBag" + bagLetter + "_file.csv";	
+		emptyFile(STORAGE_FILE_LOCATION);	
 	}
 
-	@Override
-	public void addPebble(int newPebbleWeight){
-		List<Integer> pebbleArr = loadPebbles();
+	// @Override
+	public synchronized void addPebble(int newPebbleWeight){
+		List<Integer> pebbleArr = loadPebbles(STORAGE_FILE_LOCATION);
 		pebbleArr.add(newPebbleWeight);
-		savePebbles(pebbleArr);
+		savePebbles(pebbleArr, STORAGE_FILE_LOCATION);
 	}
-
-	@Override
-	public void removeAllPebbles(){
-		// remove all from pebbleArr
-		List<Integer> pebbleArr = new ArrayList<Integer>();
-		savePebbles(pebbleArr);
-	}
-
-	
-
 }

@@ -35,8 +35,8 @@ public class FileHelpersTest {
         
         // Test file contains 5,10,3,15
         String fileName = "test/files/testFile1.csv";        
-        FileHelpers instance = new FileHelpers(fileName);
-        List<Integer> arr = instance.loadPebbles();
+        FileHelpers instance = new FileHelpers();
+        List<Integer> arr = instance.loadPebbles(fileName);
 
         assertEquals(Arrays.asList(5,10,3,15), arr);       
     }
@@ -50,8 +50,8 @@ public class FileHelpersTest {
         System.out.println("loadPebbles with empty file");
         
         String fileName = "test/files/testFile2.csv";
-        FileHelpers instance = new FileHelpers(fileName);
-        List<Integer> arr = instance.loadPebbles();
+        FileHelpers instance = new FileHelpers();
+        List<Integer> arr = instance.loadPebbles(fileName);
         
         assertEquals(Arrays.asList(), arr);
     }
@@ -64,8 +64,8 @@ public class FileHelpersTest {
         System.out.println("loadPebbles with multiple lines");
         
         String fileName = "test/files/testFile3.csv";
-        FileHelpers instance = new FileHelpers(fileName);
-        List<Integer> arr = instance.loadPebbles();
+        FileHelpers instance = new FileHelpers();
+        List<Integer> arr = instance.loadPebbles(fileName);
         
         assertEquals(Arrays.asList(2,3,5,7,9,10), arr);
     }
@@ -77,7 +77,7 @@ public class FileHelpersTest {
     public void testSavePebbles() {
         System.out.println("savePebbles");
         String fileName = "test/files/testOutput1.csv";
-        FileHelpers instance = new FileHelpers(fileName);
+        FileHelpers instance = new FileHelpers();
         
         List<Integer> testArray = new ArrayList<Integer>();
         testArray.add(2);
@@ -88,11 +88,11 @@ public class FileHelpersTest {
         List<Integer> arr = new ArrayList<>(testArray);
         
         // save to file
-        instance.savePebbles(arr);
+        instance.savePebbles(arr, fileName);
         
         // clear array and then load it from file
         arr.clear();
-        arr = instance.loadPebbles();
+        arr = instance.loadPebbles(fileName);
         
         // if it matches are it has been emptied, it saved it correctly
         assertEquals(testArray, arr);
@@ -102,13 +102,13 @@ public class FileHelpersTest {
     public void testSavePebblesEmpty(){
         System.out.println("savePebbles");
         String fileName = "test/files/testOutput2.csv";
-        FileHelpers instance = new FileHelpers(fileName);
+        FileHelpers instance = new FileHelpers();
          
         List<Integer> arr = new ArrayList<>();
         
-        instance.savePebbles(arr);
+        instance.savePebbles(arr, fileName);
         
-        int result = instance.loadPebbles().size();
+        int result = instance.loadPebbles(fileName).size();
         
         assertEquals(0, result);       
     }

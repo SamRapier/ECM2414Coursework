@@ -11,15 +11,15 @@ public class MockBlackBag extends FileHelpers implements BlackBagInterface
 {
     // private String fileLocation;
     // private String[] pebbleArr;
+    String fileName;
     
     public MockBlackBag(int numPlayers, int bagNum){		
-        super();
-        fileName = "test/files/testFile4.csv";
+        fileName = "test/files/testFile4.csv";        
     }
     
     @Override
     public int takeRandomPebble(){     
-        List<Integer> pebbleArr = loadPebbles();   
+        List<Integer> pebbleArr = loadPebbles(fileName);   
         int rnd = 4;
         int randomWeight = (int) pebbleArr.remove(rnd);
 
@@ -37,7 +37,7 @@ public class MockBlackBag extends FileHelpers implements BlackBagInterface
 
     @Override
     public int getTotalNumPebbles(){
-        List<Integer> arr = loadPebbles();
+        List<Integer> arr = loadPebbles(fileName);
         return arr.size();
     }
 }
