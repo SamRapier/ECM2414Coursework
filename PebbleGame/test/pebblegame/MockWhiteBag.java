@@ -3,6 +3,8 @@ package pebblegame;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import pebblegame.FileHelpers;
+import pebblegame.WhiteBagInterface;
 
 /**
  *
@@ -22,11 +24,5 @@ public class MockWhiteBag extends FileHelpers implements WhiteBagInterface{
 		List<Integer> pebbleArr = loadPebbles(fileName);
 		pebbleArr.add(newPebbleWeight);
 		savePebbles(pebbleArr, fileName);
-	}
-
-    @Override
-	public void removeAllPebbles() {
-		// remove all from pebbleArr
-		savePebbles(new ArrayList<Integer>(), fileName);
 	}
 }
