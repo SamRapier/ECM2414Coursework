@@ -11,18 +11,26 @@ import pebblegame.WhiteBagInterface;
  * @author samra
  */
 public class MockWhiteBag extends FileHelpers implements WhiteBagInterface{
-	// private String fileLocation;
-	// private String[] pebbleArr;
-        String fileName;
+	
+	final String STORAGE_FILE_LOCATION;
+	char bagLetter;
 
 	public MockWhiteBag(int bagNum){
-            fileName = "test/files/testFile5.csv";
+		if (bagNum == 0){
+            bagLetter = 'A';
+        } else if (bagNum == 1){
+            bagLetter = 'B';
+        } else if (bagNum == 2) {
+            bagLetter = 'C';
+        }
+		STORAGE_FILE_LOCATION = "test/files/test_wBag" + bagLetter + "_file.csv";	
+		// emptyFile(STORAGE_FILE_LOCATION);	
 	}
 
     @Override
 	public void addPebble(int newPebbleWeight) {
-		List<Integer> pebbleArr = loadPebbles(fileName);
+		List<Integer> pebbleArr = loadPebbles(STORAGE_FILE_LOCATION);
 		pebbleArr.add(newPebbleWeight);
-		savePebbles(pebbleArr, fileName);
+		savePebbles(pebbleArr, STORAGE_FILE_LOCATION);
 	}
 }

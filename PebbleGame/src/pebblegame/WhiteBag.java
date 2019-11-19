@@ -9,8 +9,7 @@ import java.util.Scanner;
  * @author samra
  */
 public class WhiteBag extends FileHelpers implements WhiteBagInterface{
-	// private String fileLocation;
-	// private String[] pebbleArr;
+
 
 	final String STORAGE_FILE_LOCATION;
 	char bagLetter;

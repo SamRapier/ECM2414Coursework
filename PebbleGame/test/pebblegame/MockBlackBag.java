@@ -52,35 +52,38 @@ public class MockBlackBag extends FileHelpers implements BlackBagInterface
 			// We will choose the 4th item in the file as our weight to test
 			int randomWeight = (int) blackBagPebbles.remove(4);
 
-			// we won't save the file in the mock object since we want to 
-			// reuse it in our unit tests
+			// We dont want to save the file in the mock object so we 
+			// can run the test again in the future
 			// savePebbles(blackBagPebbles, STORAGE_FILE_LOCATION);
 			return randomWeight;
 		} else {
 			System.out.println("another bag must be chosen");
 			return -1;
 		}
-
-
-        List<Integer> pebbleArr = loadPebbles(fileName);   
-        int rnd = 4;
-        int randomWeight = (int) pebbleArr.remove(rnd);
-
-        // We dont want to save the file in the mock object so we 
-        // can run the test again in the future
-        // savePebbles();
-
-        return randomWeight;
     }
     
     @Override
     public void replenishPebbles(){
-	    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+		char wBagLetter = '_';
+
+		if (bagLetter == 'X'){
+			wBagLetter = 'A';
+		} else if (bagLetter == 'Y'){
+			wBagLetter = 'B';
+		} else if (bagLetter == 'Z'){
+			wBagLetter = 'C';
+		} 
+
+		String wBagFileLocation = "test/files/test_wBag" + wBagLetter + "_file.csv";
+
+		List<Integer> pebbleArr = loadPebbles(wBagFileLocation);
+		savePebbles(pebbleArr, STORAGE_FILE_LOCATION);
+		emptyFile(wBagFileLocation);
     }
 
     @Override
     public int getTotalNumPebbles(){
-        List<Integer> arr = loadPebbles(fileName);
-        return arr.size();
+        List<Integer> blackBagPebbles = loadPebbles(STORAGE_FILE_LOCATION); 
+        return blackBagPebbles.size();
     }
 }

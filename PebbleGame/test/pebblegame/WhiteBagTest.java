@@ -34,30 +34,11 @@ public class WhiteBagTest {
         MockWhiteBag instance = new MockWhiteBag(1);
         instance.addPebble(newPebbleWeight);
         
-        List<Integer> pebbleArr = instance.loadPebbles();
+        List<Integer> pebbleArr = instance.loadPebbles(instance.STORAGE_FILE_LOCATION);
         int result = pebbleArr.get(pebbleArr.size() - 1);
 
         assertEquals(newPebbleWeight, result);
     }
-
-    /**
-     * Test of removeAllPebbles method, of class WhiteBag.
-     */
-    @Test
-    public void testRemoveAllPebbles() {
-        System.out.println("removeAllPebbles");
-        MockWhiteBag instance = new MockWhiteBag(1);
-        
-        List<Integer> pebbleArr = instance.loadPebbles();
-
-        instance.removeAllPebbles();
-        
-        List<Integer> result = instance.loadPebbles();
-        System.out.println(result);
-
-        assertEquals(0, result.size());
-        instance.savePebbles(pebbleArr);
-    }
-    
+	    
 }
  
