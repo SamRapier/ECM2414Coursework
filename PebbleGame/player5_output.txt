@@ -1,0 +1,138 @@
+player5 has drawn a 23 from bag Z
+player5 hand is [23]
+
+player5 has drawn a 3 from bag Z
+player5 hand is [23, 3]
+
+player5 has drawn a 8 from bag Z
+player5 hand is [23, 3, 8]
+
+player5 has drawn a 6 from bag Z
+player5 hand is [23, 3, 8, 6]
+
+player5 has drawn a 3 from bag Z
+player5 hand is [23, 3, 8, 6, 3]
+
+player5 has drawn a 18 from bag Z
+player5 hand is [23, 3, 8, 6, 3, 18]
+
+player5 has drawn a 19 from bag Z
+player5 hand is [23, 3, 8, 6, 3, 18, 19]
+
+player5 has drawn a 16 from bag Z
+player5 hand is [23, 3, 8, 6, 3, 18, 19, 16]
+
+player5 has drawn a 6 from bag Z
+player5 hand is [23, 3, 8, 6, 3, 18, 19, 16, 6]
+
+player5 has drawn a 1 from bag Z
+player5 hand is [23, 3, 8, 6, 3, 18, 19, 16, 6, 1]
+
+player5 has discarded a 3 to bag C
+player5 hand is [23, 8, 6, 3, 18, 19, 16, 6, 1]
+
+player5 has drawn a 7 from bag Y
+player5 hand is [23, 8, 6, 3, 18, 19, 16, 6, 1, 7]
+
+player5 has discarded a 3 to bag B
+player5 hand is [23, 8, 6, 18, 19, 16, 6, 1, 7]
+
+player5 has drawn a 1 from bag Z
+player5 hand is [23, 8, 6, 18, 19, 16, 6, 1, 7, 1]
+
+player5 has discarded a 1 to bag C
+player5 hand is [23, 8, 6, 18, 19, 16, 6, 7, 1]
+
+player5 has drawn a 23 from bag Z
+player5 hand is [23, 8, 6, 18, 19, 16, 6, 7, 1, 23]
+
+player5 has discarded a 18 to bag C
+player5 hand is [23, 8, 6, 19, 16, 6, 7, 1, 23]
+
+player5 has drawn a 24 from bag Y
+player5 hand is [23, 8, 6, 19, 16, 6, 7, 1, 23, 24]
+
+player5 has discarded a 6 to bag B
+player5 hand is [23, 8, 19, 16, 6, 7, 1, 23, 24]
+
+player5 has drawn a 24 from bag Y
+player5 hand is [23, 8, 19, 16, 6, 7, 1, 23, 24, 24]
+
+player5 has discarded a 19 to bag B
+player5 hand is [23, 8, 16, 6, 7, 1, 23, 24, 24]
+
+player5 has drawn a 4 from bag X
+player5 hand is [23, 8, 16, 6, 7, 1, 23, 24, 24, 4]
+
+player5 has discarded a 1 to bag A
+player5 hand is [23, 8, 16, 6, 7, 23, 24, 24, 4]
+
+player5 has drawn a 23 from bag Z
+player5 hand is [23, 8, 16, 6, 7, 23, 24, 24, 4, 23]
+
+player5 has discarded a 16 to bag C
+player5 hand is [23, 8, 6, 7, 23, 24, 24, 4, 23]
+
+player5 has drawn a 8 from bag Z
+player5 hand is [23, 8, 6, 7, 23, 24, 24, 4, 23, 8]
+
+player5 has discarded a 7 to bag C
+player5 hand is [23, 8, 6, 23, 24, 24, 4, 23, 8]
+
+player5 has drawn a 17 from bag Y
+player5 hand is [23, 8, 6, 23, 24, 24, 4, 23, 8, 17]
+
+player5 has discarded a 24 to bag B
+player5 hand is [23, 8, 6, 23, 24, 4, 23, 8, 17]
+
+player5 has drawn a 13 from bag Z
+player5 hand is [23, 8, 6, 23, 24, 4, 23, 8, 17, 13]
+
+player5 has discarded a 17 to bag C
+player5 hand is [23, 8, 6, 23, 24, 4, 23, 8, 13]
+
+player5 has drawn a 6 from bag X
+player5 hand is [23, 8, 6, 23, 24, 4, 23, 8, 13, 6]
+
+player5 has discarded a 6 to bag A
+player5 hand is [23, 8, 23, 24, 4, 23, 8, 13, 6]
+
+player5 has drawn a 17 from bag X
+player5 hand is [23, 8, 23, 24, 4, 23, 8, 13, 6, 17]
+
+player5 has discarded a 8 to bag A
+player5 hand is [23, 23, 24, 4, 23, 8, 13, 6, 17]
+
+player5 has drawn a 4 from bag Y
+player5 hand is [23, 23, 24, 4, 23, 8, 13, 6, 17, 4]
+
+player5 has discarded a 23 to bag B
+player5 hand is [23, 24, 4, 23, 8, 13, 6, 17, 4]
+
+player5 has drawn a 4 from bag Z
+player5 hand is [23, 24, 4, 23, 8, 13, 6, 17, 4, 4]
+
+player5 has discarded a 4 to bag C
+player5 hand is [23, 24, 23, 8, 13, 6, 17, 4, 4]
+
+player5 has drawn a 10 from bag Z
+player5 hand is [23, 24, 23, 8, 13, 6, 17, 4, 4, 10]
+
+player5 has discarded a 17 to bag C
+player5 hand is [23, 24, 23, 8, 13, 6, 4, 4, 10]
+
+player5 has drawn a 4 from bag Z
+player5 hand is [23, 24, 23, 8, 13, 6, 4, 4, 10, 4]
+
+player5 has discarded a 10 to bag C
+player5 hand is [23, 24, 23, 8, 13, 6, 4, 4, 4]
+
+player5 has drawn a 6 from bag Y
+player5 hand is [23, 24, 23, 8, 13, 6, 4, 4, 4, 6]
+
+player5 has discarded a 6 to bag B
+player5 hand is [23, 24, 23, 8, 13, 4, 4, 4, 6]
+
+player5 has drawn a 5 from bag Y
+player5 hand is [23, 24, 23, 8, 13, 4, 4, 4, 6, 5]
+

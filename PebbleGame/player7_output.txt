@@ -1,0 +1,72 @@
+player7 has drawn a 15 from bag X
+player7 hand is [15]
+
+player7 has drawn a 24 from bag X
+player7 hand is [15, 24]
+
+player7 has drawn a 10 from bag X
+player7 hand is [15, 24, 10]
+
+player7 has drawn a 9 from bag X
+player7 hand is [15, 24, 10, 9]
+
+player7 has drawn a 8 from bag X
+player7 hand is [15, 24, 10, 9, 8]
+
+player7 has drawn a 2 from bag X
+player7 hand is [15, 24, 10, 9, 8, 2]
+
+player7 has drawn a 5 from bag X
+player7 hand is [15, 24, 10, 9, 8, 2, 5]
+
+player7 has drawn a 20 from bag X
+player7 hand is [15, 24, 10, 9, 8, 2, 5, 20]
+
+player7 has drawn a 2 from bag X
+player7 hand is [15, 24, 10, 9, 8, 2, 5, 20, 2]
+
+player7 has drawn a 20 from bag X
+player7 hand is [15, 24, 10, 9, 8, 2, 5, 20, 2, 20]
+
+player7 has discarded a 5 to bag A
+player7 hand is [15, 24, 10, 9, 8, 2, 20, 2, 20]
+
+player7 has drawn a 4 from bag Y
+player7 hand is [15, 24, 10, 9, 8, 2, 20, 2, 20, 4]
+
+player7 has discarded a 4 to bag B
+player7 hand is [15, 24, 10, 9, 8, 2, 20, 2, 20]
+
+player7 has drawn a 1 from bag Y
+player7 hand is [15, 24, 10, 9, 8, 2, 20, 2, 20, 1]
+
+player7 has discarded a 9 to bag B
+player7 hand is [15, 24, 10, 8, 2, 20, 2, 20, 1]
+
+player7 has drawn a 6 from bag Y
+player7 hand is [15, 24, 10, 8, 2, 20, 2, 20, 1, 6]
+
+player7 has discarded a 24 to bag B
+player7 hand is [15, 10, 8, 2, 20, 2, 20, 1, 6]
+
+player7 has drawn a 7 from bag Y
+player7 hand is [15, 10, 8, 2, 20, 2, 20, 1, 6, 7]
+
+player7 has discarded a 2 to bag B
+player7 hand is [15, 10, 8, 20, 2, 20, 1, 6, 7]
+
+player7 has drawn a 15 from bag Y
+player7 hand is [15, 10, 8, 20, 2, 20, 1, 6, 7, 15]
+
+player7 has discarded a 8 to bag B
+player7 hand is [15, 10, 20, 2, 20, 1, 6, 7, 15]
+
+player7 has drawn a 14 from bag X
+player7 hand is [15, 10, 20, 2, 20, 1, 6, 7, 15, 14]
+
+player7 has discarded a 20 to bag A
+player7 hand is [15, 10, 2, 20, 1, 6, 7, 15, 14]
+
+player7 has drawn a 6 from bag Z
+player7 hand is [15, 10, 2, 20, 1, 6, 7, 15, 14, 6]
+
