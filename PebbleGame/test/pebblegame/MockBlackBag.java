@@ -1,5 +1,6 @@
 package pebblegame;
 
+import java.util.ArrayList;
 import java.util.List;
 import pebblegame.BlackBagInterface;
 import pebblegame.FileHelpers;
@@ -25,18 +26,18 @@ public class MockBlackBag extends FileHelpers implements BlackBagInterface
             bagLetter = 'Z';
         }
 
-		List<Integer> weightRange = new ArrayList<>();
+        List<Integer> weightRange = new ArrayList<>();
         List<Integer> blackBagPebbles = new ArrayList<>();
 
         weightRange = loadPebbles(rangeFileName);
         STORAGE_FILE_LOCATION = "test/files/test_bBag"+bagLetter+"_file.csv";
-		emptyFile(STORAGE_FILE_LOCATION);
+        emptyFile(STORAGE_FILE_LOCATION);
 
-		for (int i =0; i <= 11*numPlayers -1; i++){
-			blackBagPebbles.add(weightRange.get(i));
+        for (int i =0; i <= weightRange.size() -1; i++){
+            blackBagPebbles.add(weightRange.get(i));
         }
 
-		savePebbles(blackBagPebbles, STORAGE_FILE_LOCATION);
+        savePebbles(blackBagPebbles, STORAGE_FILE_LOCATION);
     }
     
     @Override

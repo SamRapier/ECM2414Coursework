@@ -24,7 +24,7 @@ public class MockWhiteBag extends FileHelpers implements WhiteBagInterface{
             bagLetter = 'C';
         }
 		STORAGE_FILE_LOCATION = "test/files/test_wBag" + bagLetter + "_file.csv";	
-		// emptyFile(STORAGE_FILE_LOCATION);	
+		emptyFile(STORAGE_FILE_LOCATION);	
 	}
 
     @Override
