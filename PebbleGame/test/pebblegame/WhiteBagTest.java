@@ -12,12 +12,14 @@ import static org.junit.Assert.*;
  * @author samra
  */
 public class WhiteBagTest {
+    public static WhiteBag wBag;
     
     public WhiteBagTest() {
     }
     
     @BeforeClass
     public static void setUpClass() {
+        wBag = new WhiteBag(1);
     }
     
     @AfterClass
@@ -31,10 +33,10 @@ public class WhiteBagTest {
     public void testAddPebble() {
         System.out.println("addPebble");
         int newPebbleWeight = 15;
-        MockWhiteBag instance = new MockWhiteBag(1);
-        instance.addPebble(newPebbleWeight);
         
-        List<Integer> pebbleArr = instance.loadPebbles(instance.STORAGE_FILE_LOCATION);
+        wBag.addPebble(newPebbleWeight);
+        
+        List<Integer> pebbleArr = wBag.loadPebbles(wBag.STORAGE_FILE_LOCATION);
         int result = pebbleArr.get(pebbleArr.size() - 1);
 
         assertEquals(newPebbleWeight, result);

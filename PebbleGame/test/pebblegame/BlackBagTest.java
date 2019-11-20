@@ -6,6 +6,7 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.Before;
 
 /**
  *
@@ -13,15 +14,33 @@ import static org.junit.Assert.*;
  */
 public class BlackBagTest {
     
+	private static BlackBag bBag;
+	private static WhiteBag wBag;
+	private static MockRandom mockRandom;
+
     public BlackBagTest() {
     }
     
     @BeforeClass
     public static void setUpClass() {
+        mockRandom = new MockRandom();
+        bBag = new BlackBag(1, "test/files/test_range.csv", 1, mockRandom);
+        wBag = new WhiteBag(1);
     }
     
     @AfterClass
     public static void tearDownClass() {
+        bBag = null;
+        wBag = null;
+        mockRandom = null;
+    }
+
+    @Before
+    public void setUpMethod(){
+		bBag.savePebbles(bBag.loadPebbles("test/files/test_range.csv"), bBag.STORAGE_FILE_LOCATION);
+		wBag = new WhiteBag(1);
+		mockRandom = new MockRandom();
+		mockRandom.sequentialNum = 0;
     }
 
     /**
@@ -29,14 +48,11 @@ public class BlackBagTest {
      */
     @Test
     public void testTakeRandomPebble() {
-        System.out.println("Test takeRandomPebble with normal values");
-        MockBlackBag instance = new MockBlackBag(1, "test/files/test_range.csv", 1);
-        
-        // The 4th item in the file is 15
-        int expResult = 15;             
-        
-        int result = instance.takeRandomPebble();
-        assertEquals(expResult, result);
+        assertEquals(2, bBag.takeRandomPebble());
+        assertEquals(4, bBag.takeRandomPebble());
+        assertEquals(6, bBag.takeRandomPebble());
+        assertEquals(8, bBag.takeRandomPebble());
+        assertEquals(10, bBag.takeRandomPebble());
     }
 
 	/**
@@ -44,14 +60,13 @@ public class BlackBagTest {
      */
     @Test
     public void testTakeRandomPebbleEmptyBag() {
-        System.out.println("Test takeRandomPebble with an empty Balck Bag and empty white bag");
-        MockBlackBag instance = new MockBlackBag(1, "test/files/test_range2.csv", 1);
+		bBag.savePebbles(new ArrayList<>(), bBag.STORAGE_FILE_LOCATION);
         
         // When the bag cannot be replenished it returns -1 which should be 
 		// dealt with earlier in the call
         int expResult = -1;              
         
-        int result = instance.takeRandomPebble();
+        int result = bBag.takeRandomPebble();
         assertEquals(expResult, result);
     }
 
@@ -61,20 +76,19 @@ public class BlackBagTest {
     @Test
     public void testTakeRandomPebbleReplenish() {
         System.out.println("Test takeRandomPebble with an empty Balck Bag which is replenished by the white bag");
-        MockBlackBag instance = new MockBlackBag(1, "test/files/test_range2.csv", 1);
-        MockWhiteBag wBaginstance = new MockWhiteBag(1);
+        bBag.savePebbles(new ArrayList<>(), bBag.STORAGE_FILE_LOCATION);
 
-		wBaginstance.addPebble(4);
-		wBaginstance.addPebble(5);
-		wBaginstance.addPebble(6);
-		wBaginstance.addPebble(7);
-		wBaginstance.addPebble(8);
-		wBaginstance.addPebble(9);
+        wBag.addPebble(4);
+        wBag.addPebble(5);
+        wBag.addPebble(6);
+        wBag.addPebble(7);
+        wBag.addPebble(8);
+        wBag.addPebble(9);
 
-        // When the bag is replenished, the 5th pebble weight should be 8
-        int expResult = 8;              
+        // When the bag is replenished, pebble weight taken should be the first one and that is 4
+        int expResult = 4;              
         
-        int result = instance.takeRandomPebble();
+        int result = bBag.takeRandomPebble();
         assertEquals(expResult, result);
     }
 
@@ -84,24 +98,24 @@ public class BlackBagTest {
     @Test
     public void testReplenishPebbles() {
         System.out.println("replenishPebbles");
-        MockBlackBag bBagInstance = new MockBlackBag(1,"test/files/test_range2.csv", 1);
-		MockWhiteBag wBagInstance = new MockWhiteBag(1);
-		wBagInstance.addPebble(4);
-		wBagInstance.addPebble(5);
-		wBagInstance.addPebble(6);
-		wBagInstance.addPebble(7);
-		wBagInstance.addPebble(8);
-		wBagInstance.addPebble(9);
+        bBag.savePebbles(new ArrayList<>(), bBag.STORAGE_FILE_LOCATION);
+        
+		wBag.addPebble(4);
+		wBag.addPebble(5);
+		wBag.addPebble(6);
+		wBag.addPebble(7);
+		wBag.addPebble(8);
+		wBag.addPebble(9);
 
 		List<Integer> bBagInitial, wBagInitial, bBagResult, wBagResult;
 
-		bBagInitial = bBagInstance.loadPebbles(bBagInstance.STORAGE_FILE_LOCATION);
-		wBagInitial = wBagInstance.loadPebbles(wBagInstance.STORAGE_FILE_LOCATION);
+		bBagInitial = bBag.loadPebbles(bBag.STORAGE_FILE_LOCATION);
+		wBagInitial = wBag.loadPebbles(wBag.STORAGE_FILE_LOCATION);
 
-        bBagInstance.replenishPebbles();
+        bBag.replenishPebbles();
 
-		bBagResult = bBagInstance.loadPebbles(bBagInstance.STORAGE_FILE_LOCATION);
-		wBagResult = wBagInstance.loadPebbles(wBagInstance.STORAGE_FILE_LOCATION);
+		bBagResult = bBag.loadPebbles(bBag.STORAGE_FILE_LOCATION);
+		wBagResult = wBag.loadPebbles(wBag.STORAGE_FILE_LOCATION);
 
 		// the initial black bag should be empty
 		assertEquals(new ArrayList<>(), bBagInitial);
@@ -117,17 +131,17 @@ public class BlackBagTest {
     @Test
     public void testReplenishPebbleseEmptyFile() {
         System.out.println("replenishPebbles");
-        MockBlackBag bBagInstance = new MockBlackBag(1,"test/files/test_range2.csv", 1);
-		MockWhiteBag wBagInstance = new MockWhiteBag(1);
+		bBag.savePebbles(new ArrayList<>(), bBag.STORAGE_FILE_LOCATION);
+
 		List<Integer> bBagInitial, wBagInitial, bBagResult, wBagResult;
 
-		bBagInitial = bBagInstance.loadPebbles(bBagInstance.STORAGE_FILE_LOCATION);
-		wBagInitial = wBagInstance.loadPebbles(wBagInstance.STORAGE_FILE_LOCATION);
+		bBagInitial = bBag.loadPebbles(bBag.STORAGE_FILE_LOCATION);
+		wBagInitial = wBag.loadPebbles(wBag.STORAGE_FILE_LOCATION);
 
-        bBagInstance.replenishPebbles();
+        bBag.replenishPebbles();
 
-		bBagResult = bBagInstance.loadPebbles(bBagInstance.STORAGE_FILE_LOCATION);
-		wBagResult = wBagInstance.loadPebbles(wBagInstance.STORAGE_FILE_LOCATION);
+		bBagResult = bBag.loadPebbles(bBag.STORAGE_FILE_LOCATION);
+		wBagResult = wBag.loadPebbles(wBag.STORAGE_FILE_LOCATION);
 
 		// the initial black bag should be empty
 		assertEquals(new ArrayList<>(), bBagInitial);
@@ -145,9 +159,9 @@ public class BlackBagTest {
     @Test
     public void testGetTotalNumPebbles() {
         System.out.println("getTotalNumPebbles");
-        MockBlackBag instance = new MockBlackBag(1,"test/files/test_range.csv", 1);
+        
         int expResult = 25;
-        int result = instance.getTotalNumPebbles();
+        int result = bBag.getTotalNumPebbles();
         assertEquals(expResult, result);
     }
     

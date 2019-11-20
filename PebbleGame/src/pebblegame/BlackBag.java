@@ -19,9 +19,11 @@ public class BlackBag extends FileHelpers implements BlackBagInterface
 	// List<Integer> blackBagPebbles = new ArrayList<>();
     final String STORAGE_FILE_LOCATION;
     char bagLetter;
+	public Random random;
 
-    public BlackBag(int numPlayers, String rangeFileName, int bagNum){	
+    public BlackBag(int numPlayers, String rangeFileName, int bagNum, Random random){	
 		// Works out the letter for the black bag
+		this.random = random;
         if (bagNum == 0){
             bagLetter = 'X';
         } else if (bagNum == 1){
@@ -41,13 +43,10 @@ public class BlackBag extends FileHelpers implements BlackBagInterface
         STORAGE_FILE_LOCATION = "bBag"+bagLetter+"_file.csv";
 		emptyFile(STORAGE_FILE_LOCATION);
 
-
-        Random rand = new Random();
-
 		// adds the correct number of pebbles to the black bag,
 		// randomly chooses the pebbles from the range file
         for (int i =0; i <= 11*numPlayers -1; i++){
-			blackBagPebbles.add(weightRange.get(rand.nextInt(weightRange.size())));
+			blackBagPebbles.add(weightRange.get(random.nextInt(weightRange.size())));
         }
 
 		// saves the black bag to the file
@@ -62,7 +61,6 @@ public class BlackBag extends FileHelpers implements BlackBagInterface
 		if (getTotalNumPebbles() > 0){
 
 			List<Integer> blackBagPebbles = loadPebbles(STORAGE_FILE_LOCATION); 
-			Random random = new Random();
 
 			int rnd = random.nextInt(blackBagPebbles.size());
 
@@ -97,8 +95,7 @@ public class BlackBag extends FileHelpers implements BlackBagInterface
     }
     
     // @Override
-    public synchronized int getTotalNumPebbles() {
-        // List<Integer> arr = loadPebbles(fileName);
+    public synchronized int getTotalNumPebbles() {        
 		List<Integer> blackBagPebbles = loadPebbles(STORAGE_FILE_LOCATION); 
         return blackBagPebbles.size();
     }

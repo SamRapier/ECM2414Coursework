@@ -32,20 +32,22 @@ public class PebbleGame {
 		// get input for numPlayers and file locations here
 		try(BufferedReader input = new BufferedReader(new InputStreamReader(System.in))){
 			System.out.print("How many players are in the game: ");
-			numPlayers = Integer.parseInt(input.readLine());
+			// Take the input, check if the user wants to exit
+			String strNumPlayers = input.readLine();
+			checkForExit(strNumPlayers);
+			// parse the input into an integer variable
+			numPlayers = Integer.parseInt(strNumPlayers);
 
 			// loop 3 times for 3 bags of each type
 			for (int i = 0; i < 3; i++){
-				System.out.print("Enter location of bag number to " + i + " load: ");
+				System.out.print("Enter location of blakc bag " + i + " to load: ");
+				// take the input from the user
 				String fileName = input.readLine();
-
-				// exit the program is user entered an 'E'
-				if (fileName.toUpperCase() == "E"){
-					System.exit(0);
-				}
+				// check if the user want to exit
+				checkForExit(fileName);
 
 				// contruct the objects for each of the bags
-				bBags[i] = new BlackBag(numPlayers, fileName, i);
+				bBags[i] = new BlackBag(numPlayers, fileName, i, new Random());
 				wBags[i] = new WhiteBag(i);
 			}
 
@@ -64,6 +66,13 @@ public class PebbleGame {
 			object.start();
 		}
 
+	}
+
+	public static void checkForExit(String str){
+		// if the str is equal to E, exit the program
+		if (str.toUpperCase().equals("E")){
+			System.exit(0);
+		}
 	}
 
 

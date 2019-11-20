@@ -1,0 +1,210 @@
+player3 has drawn a 13 from bag X
+player3 hand is [13]
+
+player3 has drawn a 20 from bag X
+player3 hand is [13, 20]
+
+player3 has drawn a 15 from bag X
+player3 hand is [13, 20, 15]
+
+player3 has drawn a 17 from bag X
+player3 hand is [13, 20, 15, 17]
+
+player3 has drawn a 9 from bag X
+player3 hand is [13, 20, 15, 17, 9]
+
+player3 has drawn a 11 from bag X
+player3 hand is [13, 20, 15, 17, 9, 11]
+
+player3 has drawn a 8 from bag X
+player3 hand is [13, 20, 15, 17, 9, 11, 8]
+
+player3 has drawn a 23 from bag X
+player3 hand is [13, 20, 15, 17, 9, 11, 8, 23]
+
+player3 has drawn a 17 from bag X
+player3 hand is [13, 20, 15, 17, 9, 11, 8, 23, 17]
+
+player3 has drawn a 19 from bag X
+player3 hand is [13, 20, 15, 17, 9, 11, 8, 23, 17, 19]
+
+player3 has discarded a 17 to bag A
+player3 hand is [13, 20, 15, 9, 11, 8, 23, 17, 19]
+
+player3 has drawn a 20 from bag Z
+player3 hand is [13, 20, 15, 9, 11, 8, 23, 17, 19, 20]
+
+player3 has discarded a 17 to bag C
+player3 hand is [13, 20, 15, 9, 11, 8, 23, 19, 20]
+
+player3 has drawn a 15 from bag Z
+player3 hand is [13, 20, 15, 9, 11, 8, 23, 19, 20, 15]
+
+player3 has discarded a 20 to bag C
+player3 hand is [13, 15, 9, 11, 8, 23, 19, 20, 15]
+
+player3 has drawn a 23 from bag Z
+player3 hand is [13, 15, 9, 11, 8, 23, 19, 20, 15, 23]
+
+player3 has discarded a 20 to bag C
+player3 hand is [13, 15, 9, 11, 8, 23, 19, 15, 23]
+
+player3 has drawn a 19 from bag Z
+player3 hand is [13, 15, 9, 11, 8, 23, 19, 15, 23, 19]
+
+player3 has discarded a 23 to bag C
+player3 hand is [13, 15, 9, 11, 8, 19, 15, 23, 19]
+
+player3 has drawn a 5 from bag Z
+player3 hand is [13, 15, 9, 11, 8, 19, 15, 23, 19, 5]
+
+player3 has discarded a 5 to bag C
+player3 hand is [13, 15, 9, 11, 8, 19, 15, 23, 19]
+
+player3 has drawn a 2 from bag X
+player3 hand is [13, 15, 9, 11, 8, 19, 15, 23, 19, 2]
+
+player3 has discarded a 19 to bag A
+player3 hand is [13, 15, 9, 11, 8, 15, 23, 19, 2]
+
+player3 has drawn a 22 from bag Z
+player3 hand is [13, 15, 9, 11, 8, 15, 23, 19, 2, 22]
+
+player3 has discarded a 13 to bag C
+player3 hand is [15, 9, 11, 8, 15, 23, 19, 2, 22]
+
+player3 has drawn a 18 from bag Y
+player3 hand is [15, 9, 11, 8, 15, 23, 19, 2, 22, 18]
+
+player3 has discarded a 19 to bag B
+player3 hand is [15, 9, 11, 8, 15, 23, 2, 22, 18]
+
+player3 has drawn a 25 from bag Z
+player3 hand is [15, 9, 11, 8, 15, 23, 2, 22, 18, 25]
+
+player3 has discarded a 15 to bag C
+player3 hand is [9, 11, 8, 15, 23, 2, 22, 18, 25]
+
+player3 has drawn a 11 from bag X
+player3 hand is [9, 11, 8, 15, 23, 2, 22, 18, 25, 11]
+
+player3 has discarded a 18 to bag A
+player3 hand is [9, 11, 8, 15, 23, 2, 22, 25, 11]
+
+player3 has drawn a 9 from bag X
+player3 hand is [9, 11, 8, 15, 23, 2, 22, 25, 11, 9]
+
+player3 has discarded a 9 to bag A
+player3 hand is [11, 8, 15, 23, 2, 22, 25, 11, 9]
+
+player3 has drawn a 4 from bag Z
+player3 hand is [11, 8, 15, 23, 2, 22, 25, 11, 9, 4]
+
+player3 has discarded a 8 to bag C
+player3 hand is [11, 15, 23, 2, 22, 25, 11, 9, 4]
+
+player3 has drawn a 8 from bag Z
+player3 hand is [11, 15, 23, 2, 22, 25, 11, 9, 4, 8]
+
+player3 has discarded a 22 to bag C
+player3 hand is [11, 15, 23, 2, 25, 11, 9, 4, 8]
+
+player3 has drawn a 23 from bag Y
+player3 hand is [11, 15, 23, 2, 25, 11, 9, 4, 8, 23]
+
+player3 has discarded a 25 to bag B
+player3 hand is [11, 15, 23, 2, 11, 9, 4, 8, 23]
+
+player3 has drawn a 24 from bag X
+player3 hand is [11, 15, 23, 2, 11, 9, 4, 8, 23, 24]
+
+player3 has discarded a 11 to bag A
+player3 hand is [15, 23, 2, 11, 9, 4, 8, 23, 24]
+
+player3 has drawn a 14 from bag Z
+player3 hand is [15, 23, 2, 11, 9, 4, 8, 23, 24, 14]
+
+player3 has discarded a 23 to bag C
+player3 hand is [15, 2, 11, 9, 4, 8, 23, 24, 14]
+
+player3 has drawn a 20 from bag Y
+player3 hand is [15, 2, 11, 9, 4, 8, 23, 24, 14, 20]
+
+player3 has discarded a 24 to bag B
+player3 hand is [15, 2, 11, 9, 4, 8, 23, 14, 20]
+
+player3 has drawn a 22 from bag Z
+player3 hand is [15, 2, 11, 9, 4, 8, 23, 14, 20, 22]
+
+player3 has discarded a 4 to bag C
+player3 hand is [15, 2, 11, 9, 8, 23, 14, 20, 22]
+
+player3 has drawn a 14 from bag Z
+player3 hand is [15, 2, 11, 9, 8, 23, 14, 20, 22, 14]
+
+player3 has discarded a 9 to bag C
+player3 hand is [15, 2, 11, 8, 23, 14, 20, 22, 14]
+
+player3 has drawn a 18 from bag Z
+player3 hand is [15, 2, 11, 8, 23, 14, 20, 22, 14, 18]
+
+player3 has discarded a 18 to bag C
+player3 hand is [15, 2, 11, 8, 23, 14, 20, 22, 14]
+
+player3 has drawn a 15 from bag X
+player3 hand is [15, 2, 11, 8, 23, 14, 20, 22, 14, 15]
+
+player3 has discarded a 14 to bag A
+player3 hand is [15, 2, 11, 8, 23, 20, 22, 14, 15]
+
+player3 has drawn a 11 from bag Z
+player3 hand is [15, 2, 11, 8, 23, 20, 22, 14, 15, 11]
+
+player3 has discarded a 20 to bag C
+player3 hand is [15, 2, 11, 8, 23, 22, 14, 15, 11]
+
+player3 has drawn a 25 from bag Y
+player3 hand is [15, 2, 11, 8, 23, 22, 14, 15, 11, 25]
+
+player3 has discarded a 15 to bag B
+player3 hand is [2, 11, 8, 23, 22, 14, 15, 11, 25]
+
+player3 has drawn a 22 from bag Y
+player3 hand is [2, 11, 8, 23, 22, 14, 15, 11, 25, 22]
+
+player3 has discarded a 22 to bag B
+player3 hand is [2, 11, 8, 23, 14, 15, 11, 25, 22]
+
+player3 has drawn a 18 from bag X
+player3 hand is [2, 11, 8, 23, 14, 15, 11, 25, 22, 18]
+
+player3 has discarded a 15 to bag A
+player3 hand is [2, 11, 8, 23, 14, 11, 25, 22, 18]
+
+player3 has drawn a 17 from bag X
+player3 hand is [2, 11, 8, 23, 14, 11, 25, 22, 18, 17]
+
+player3 has discarded a 18 to bag A
+player3 hand is [2, 11, 8, 23, 14, 11, 25, 22, 17]
+
+player3 has drawn a 4 from bag X
+player3 hand is [2, 11, 8, 23, 14, 11, 25, 22, 17, 4]
+
+player3 has discarded a 23 to bag A
+player3 hand is [2, 11, 8, 14, 11, 25, 22, 17, 4]
+
+player3 has drawn a 6 from bag X
+player3 hand is [2, 11, 8, 14, 11, 25, 22, 17, 4, 6]
+
+player3 has discarded a 8 to bag A
+player3 hand is [2, 11, 14, 11, 25, 22, 17, 4, 6]
+
+player3 has drawn a 9 from bag X
+player3 hand is [2, 11, 14, 11, 25, 22, 17, 4, 6, 9]
+
+player3 has discarded a 25 to bag A
+player3 hand is [2, 11, 14, 11, 22, 17, 4, 6, 9]
+
+player3 has drawn a 4 from bag Y
+player3 hand is [2, 11, 14, 11, 22, 17, 4, 6, 9, 4]
+
