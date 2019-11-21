@@ -13,10 +13,7 @@ import java.util.Scanner;
 
 import pebblegame.PebbleGame.Player;
 
-/**
- *
- * @author samra
- */
+
 public class FileHelpers
 {
     

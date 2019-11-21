@@ -4,10 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-/**
- *
- * @author samra
- */
+
 public class WhiteBag extends FileHelpers{
 
 

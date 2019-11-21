@@ -10,10 +10,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-/**
- *
- * @author samra
- */
+
 public class PebbleGame {
 
 	/**

@@ -15,10 +15,7 @@ import pebblegame.PebbleGame.Player;
 
 import static org.junit.Assert.*;
 
-/**
- *
- * @author samra
- */
+
 public class PebbleGameTest {
     
 	public static BlackBag [] bBags;
