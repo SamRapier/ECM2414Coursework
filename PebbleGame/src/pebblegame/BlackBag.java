@@ -8,10 +8,7 @@ import java.util.Scanner;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-/**
- *
- * @author samra
- */
+
 public class BlackBag extends FileHelpers
 {
     final String STORAGE_FILE_LOCATION;

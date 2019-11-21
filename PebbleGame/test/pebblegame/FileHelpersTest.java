@@ -9,10 +9,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-/**
- *
- * @author samra
- */
+
 public class FileHelpersTest {
     
 	private static FileHelpers fileHelper;
@@ -78,6 +75,7 @@ public class FileHelpersTest {
         System.out.println("savePebbles");
         String fileName = "test/files/testOutput1.csv";
         
+        // adds integers to the array list
         List<Integer> testArray = new ArrayList<Integer>();
         testArray.add(2);
         testArray.add(1);
@@ -99,6 +97,8 @@ public class FileHelpersTest {
     
     @Test
     public void testSavePebblesEmpty(){
+        // saves an empty array, if the array it then loads is empty then
+        // the test clears, if not an assertion will be raised
         System.out.println("savePebbles");
         String fileName = "test/files/testOutput2.csv";
          
