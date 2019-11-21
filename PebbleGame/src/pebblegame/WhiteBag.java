@@ -8,7 +8,7 @@ import java.util.Scanner;
  *
  * @author samra
  */
-public class WhiteBag extends FileHelpers implements WhiteBagInterface{
+public class WhiteBag extends FileHelpers{
 
 
 	final String STORAGE_FILE_LOCATION;
@@ -26,7 +26,6 @@ public class WhiteBag extends FileHelpers implements WhiteBagInterface{
 		emptyFile(STORAGE_FILE_LOCATION);	
 	}
 
-	// @Override
 	public synchronized void addPebble(int newPebbleWeight){
 		List<Integer> pebbleArr = loadPebbles(STORAGE_FILE_LOCATION);
 		pebbleArr.add(newPebbleWeight);

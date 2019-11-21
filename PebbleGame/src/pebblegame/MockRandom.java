@@ -6,7 +6,6 @@ import java.util.Random;
 
 public class MockRandom extends Random{
 	public int sequentialNum = 0;
-	public int overrideNum = -1;
 
 	public MockRandom(){
 		super();
@@ -25,9 +24,5 @@ public class MockRandom extends Random{
 			sequentialNum++;
 		}
 		return sequentialNum;
-	}
-
-	public void setOverride(int num){
-		overrideNum = num;
 	}
 }

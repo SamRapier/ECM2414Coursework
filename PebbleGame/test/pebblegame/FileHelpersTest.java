@@ -87,7 +87,7 @@ public class FileHelpersTest {
         List<Integer> arr = new ArrayList<>(testArray);
         
         // save to file
-        instance.savePebbles(arr, fileName);
+        fileHelper.savePebbles(arr, fileName);
         
         // clear array and then load it from file
         arr.clear();

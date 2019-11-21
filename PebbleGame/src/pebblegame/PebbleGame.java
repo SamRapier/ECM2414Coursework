@@ -40,7 +40,7 @@ public class PebbleGame {
 
 			// loop 3 times for 3 bags of each type
 			for (int i = 0; i < 3; i++){
-				System.out.print("Enter location of blakc bag " + i + " to load: ");
+				System.out.print("Enter location of black bag " + i + " to load: ");
 				// take the input from the user
 				String fileName = input.readLine();
 				// check if the user want to exit
@@ -138,7 +138,6 @@ public class PebbleGame {
 			}
 		}
 
-		// needs to be atomic
 		public synchronized boolean drawFromBag(BlackBag bBag){
 			List<Integer> playerPebbles = loadPebbles(FILE_STORAGE_LOCATION);
 			int newPebble = bBag.takeRandomPebble();
@@ -152,17 +151,14 @@ public class PebbleGame {
 			return false;
 		}
 
-		// needs to be atomic
 		public synchronized void discardPebble(int weight, WhiteBag wBag){
-			// AtomicInteger pWeight;
-			// pWeight.set(weight);
+
 			List<Integer> playerPebbles = loadPebbles(FILE_STORAGE_LOCATION);
 
 			wBag.addPebble(weight);
 
 			int weightIndex = playerPebbles.indexOf(weight);
-			// AtomicInteger weightIndex;
-			// weightIndex.set(playerPebbles.indexOf(weight));
+
 
 			playerPebbles.remove(weightIndex);
 			savePebbles(playerPebbles, FILE_STORAGE_LOCATION);
@@ -170,17 +166,6 @@ public class PebbleGame {
 			writeDiscardToFile(FILE_OUTPUT_LOCATION, FILE_STORAGE_LOCATION, weight, wBag, playerNum);
 		}
 		
-		public synchronized int getTotalWeight() {
-			List<Integer> playerPebbles = loadPebbles(FILE_STORAGE_LOCATION);
-			int totalWeight = 0;
-			
-			for(int weight: playerPebbles){
-				totalWeight += weight;
-			}
-			
-			return totalWeight;
-		}
-
 		public synchronized Boolean checkWeight(){
 			List<Integer> playerPebbles = loadPebbles(FILE_STORAGE_LOCATION);
 			int totalWeight = 0;
@@ -197,6 +182,4 @@ public class PebbleGame {
 		}
 	
 	}
-	
-	
 }

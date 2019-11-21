@@ -19,7 +19,6 @@ import pebblegame.PebbleGame.Player;
  */
 public class FileHelpers
 {
-    // String fileName;
     
     public FileHelpers(){}    
     
@@ -94,9 +93,6 @@ public class FileHelpers
 		String str = "player" + playerNum + " has drawn a " + adjustVar + " from bag " + bBag.bagLetter 
 			+ "\n" + "player" + playerNum + " hand is " + arr.toString() + "\n";
 
-		// System.out.println("player" + playerNum + " has drawn a " + adjustVar + " from bag " + bBag.bagLetter);
-        // System.out.println("player" + playerNum + " hand is " + arr.toString());
-
 		appendToAfile(fileOutputLocation, str);
     }
 
@@ -106,20 +102,16 @@ public class FileHelpers
 		String str = "player" + playerNum + " has discarded a " + adjustVar + " to bag " + wBag.bagLetter
 			+ "\n" + "player" + playerNum + " hand is " + arr.toString() + "\n";
 
-		// System.out.println("player" + playerNum + " has discarded a " + adjustVar + " to bag " + wBag.bagLetter);
-        // System.out.println("player" + playerNum + " hand is " + arr.toString());
-
 		appendToAfile(fileOutputLocation, str);
     }
 
 	public synchronized void appendToAfile(String fileLocation, String str){
-		// try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileLocation))) {
 		try (FileWriter fw = new FileWriter(fileLocation, true);
 			 BufferedWriter bw = new BufferedWriter(fw);
 			 PrintWriter out = new PrintWriter(bw))
 		{
 			out.println(str);
-            // writer.append(str);
+
         } catch (IOException e){
             System.err.println(e);
         }

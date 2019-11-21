@@ -12,11 +12,8 @@ import java.io.InputStreamReader;
  *
  * @author samra
  */
-public class BlackBag extends FileHelpers implements BlackBagInterface
+public class BlackBag extends FileHelpers
 {
-    // private String fileLocation;
-    // private String[] pebbleArr;
-	// List<Integer> blackBagPebbles = new ArrayList<>();
     final String STORAGE_FILE_LOCATION;
     char bagLetter;
 	public Random random;
@@ -75,7 +72,6 @@ public class BlackBag extends FileHelpers implements BlackBagInterface
 
     }
     
-    // @Override
     public synchronized void replenishPebbles(){
 		char wBagLetter = '_';
 
@@ -94,7 +90,6 @@ public class BlackBag extends FileHelpers implements BlackBagInterface
 		emptyFile(wBagFileLocation);
     }
     
-    // @Override
     public synchronized int getTotalNumPebbles() {        
 		List<Integer> blackBagPebbles = loadPebbles(STORAGE_FILE_LOCATION); 
         return blackBagPebbles.size();
