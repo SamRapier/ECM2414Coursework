@@ -34,11 +34,15 @@ public class WhiteBagTest {
         System.out.println("addPebble");
         int newPebbleWeight = 15;
         
+        // adds a pebble of weight 15 to the bag
         wBag.addPebble(newPebbleWeight);
         
+        // loads the pebble array and puts the value of the last pebble in the
+        // bag into result variable
         List<Integer> pebbleArr = wBag.loadPebbles(wBag.STORAGE_FILE_LOCATION);
         int result = pebbleArr.get(pebbleArr.size() - 1);
 
+        // checks if the last result in the array is equal to the new pebble weight
         assertEquals(newPebbleWeight, result);
     }
 	    
