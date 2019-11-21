@@ -1,22 +1,186 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>PebbleGame.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;PebbleGame&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">pebblegame</a> &gt; <span class="el_source">PebbleGame.java</span></div><h1>PebbleGame.java</h1><pre class="source lang-java linenums">/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package pebblegame;
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>PebbleGame.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;PebbleGame&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">pebblegame</a> &gt; <span class="el_source">PebbleGame.java</span></div><h1>PebbleGame.java</h1><pre class="source lang-java linenums">package pebblegame;
+
+import java.io.BufferedReader;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+import java.util.Scanner;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 
 /**
  *
  * @author samra
  */
-<span class="nc" id="L12">public class PebbleGame {</span>
+<span class="nc" id="L17">public class PebbleGame {</span>
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
-<span class="nc" id="L19">    }</span>
-    
+	/**
+	 * @param args the command line arguments
+	 */
+	public static void main(String[] args) {     
+		
+		// Make arrays of each of the Bag objects
+<span class="nc" id="L25">		BlackBag[] bBags = new BlackBag[3];</span>
+<span class="nc" id="L26">		WhiteBag[] wBags = new WhiteBag[3];</span>
+
+		// initialise numPlayers and doneFlag
+<span class="nc" id="L29">		int numPlayers = 0;</span>
+<span class="nc" id="L30">		AtomicBoolean doneFlag = new AtomicBoolean(false);</span>
+
+		// get input for numPlayers and file locations here
+<span class="nc" id="L33">		try(BufferedReader input = new BufferedReader(new InputStreamReader(System.in))){</span>
+<span class="nc" id="L34">			System.out.print(&quot;How many players are in the game: &quot;);</span>
+			// Take the input, check if the user wants to exit
+<span class="nc" id="L36">			String strNumPlayers = input.readLine();</span>
+<span class="nc" id="L37">			checkForExit(strNumPlayers);</span>
+			// parse the input into an integer variable
+<span class="nc" id="L39">			numPlayers = Integer.parseInt(strNumPlayers);</span>
+
+			// loop 3 times for 3 bags of each type
+<span class="nc bnc" id="L42" title="All 2 branches missed.">			for (int i = 0; i &lt; 3; i++){</span>
+<span class="nc" id="L43">				System.out.print(&quot;Enter location of black bag &quot; + i + &quot; to load: &quot;);</span>
+				// take the input from the user
+<span class="nc" id="L45">				String fileName = input.readLine();</span>
+				// check if the user want to exit
+<span class="nc" id="L47">				checkForExit(fileName);</span>
+
+				// contruct the objects for each of the bags
+<span class="nc" id="L50">				bBags[i] = new BlackBag(numPlayers, fileName, i, new Random());</span>
+<span class="nc" id="L51">				wBags[i] = new WhiteBag(i);</span>
+			}
+
+<span class="nc bnc" id="L54" title="All 8 branches missed.">		} catch (Exception e){</span>
+<span class="nc" id="L55">			System.err.println(e);</span>
+<span class="nc" id="L56">		}</span>
+
+<span class="nc" id="L58">		Random rand = new Random();</span>
+		// loop for each of the players create a new player and load the pebbles from a randomly
+		// chosen bag
+<span class="nc bnc" id="L61" title="All 2 branches missed.">		for (int i = 0; i &lt; numPlayers; i++){</span>
+<span class="nc" id="L62">			int chosenBag = rand.nextInt(3);</span>
+
+			// create the thread object and start it
+<span class="nc" id="L65">			Thread object = new Thread(new Player(chosenBag, i, bBags, wBags, doneFlag));</span>
+<span class="nc" id="L66">			object.start();</span>
+		}
+
+<span class="nc" id="L69">	}</span>
+
+	public static void checkForExit(String str){
+		// if the str is equal to E, exit the program
+<span class="nc bnc" id="L73" title="All 2 branches missed.">		if (str.toUpperCase().equals(&quot;E&quot;)){</span>
+<span class="nc" id="L74">			System.exit(0);</span>
+		}
+<span class="nc" id="L76">	}</span>
+
+
+	public static class Player extends FileHelpers implements Runnable{
+		// declare vairables
+		final String FILE_STORAGE_LOCATION, FILE_OUTPUT_LOCATION;
+		public int playerNum;
+		BlackBag[] bBags;
+		WhiteBag[] wBags;
+		AtomicBoolean doneFlag;
+		int drawBag;
+		
+
+<span class="fc" id="L89">		public Player(int chosenBag, int playerNum, BlackBag[] _bBags, WhiteBag[] _wBags, AtomicBoolean _doneFlag){</span>
+			// initialise vairables
+<span class="fc" id="L91">			this.playerNum = playerNum;</span>
+<span class="fc" id="L92">			bBags = _bBags;</span>
+<span class="fc" id="L93">			wBags = _wBags;</span>
+<span class="fc" id="L94">			doneFlag = _doneFlag;</span>
+<span class="fc" id="L95">			drawBag = chosenBag;</span>
+
+<span class="fc" id="L97">			FILE_OUTPUT_LOCATION = &quot;player&quot; + this.playerNum + &quot;_output.txt&quot;;</span>
+<span class="fc" id="L98">			FILE_STORAGE_LOCATION = &quot;player&quot; + this.playerNum + &quot;Pebbles.csv&quot;;</span>
+
+			// make sure to empty the files to ensure that no data from the previous simulation causes any issues
+<span class="fc" id="L101">			emptyFile(FILE_STORAGE_LOCATION);</span>
+<span class="fc" id="L102">			emptyFile(FILE_OUTPUT_LOCATION);</span>
+
+			// each player needs to start with 10 pebbles, this loops through 10 times and draws from the chosen black bag
+<span class="fc bfc" id="L105" title="All 2 branches covered.">			for(int i = 0; i&lt;10; i++){</span>
+<span class="fc" id="L106">				drawFromBag(bBags[chosenBag]);</span>
+			}
+<span class="fc" id="L108">		}</span>
+
+		public void run(){
+<span class="nc" id="L111">			Random rand = new Random();</span>
+			// check totalWeight of bag
+<span class="nc bnc" id="L113" title="All 4 branches missed.">			while (!checkWeight() &amp;&amp; !doneFlag.get()) {		</span>
+			
+				// choose pebble to discrad
+				// currently done at random
+<span class="nc" id="L117">				List&lt;Integer&gt; pebbleArr = loadPebbles(FILE_STORAGE_LOCATION);</span>
+<span class="nc" id="L118">				int index = rand.nextInt(pebbleArr.size());</span>
+<span class="nc" id="L119">				int weight = pebbleArr.get(index);</span>
+
+				// discard from previous drawn bag
+<span class="nc" id="L122">				discardPebble(weight, wBags[drawBag]);</span>
+
+				// Randomly choose a bag to draw from
+<span class="nc" id="L125">				drawBag = rand.nextInt(3);</span>
+
+				// draw from bag, if pebbles cannot be drawn from the bag since both the black bag and 
+				// corresponding white bag are empty, choose a another bag to draw from
+<span class="nc bnc" id="L129" title="All 2 branches missed.">				while (!drawFromBag(bBags[drawBag])){</span>
+<span class="nc" id="L130">					drawBag = rand.nextInt(3);</span>
+				}				
+<span class="nc" id="L132">			}</span>
+			// set the doneFlag to true
+<span class="nc" id="L134">			doneFlag.set(true);</span>
+			// print out which player has won
+<span class="nc bnc" id="L136" title="All 2 branches missed.">			if (checkWeight()){</span>
+<span class="nc" id="L137">				System.out.println(&quot;player&quot; + playerNum + &quot; has WON!!!&quot;);</span>
+			}
+<span class="nc" id="L139">		}</span>
+
+		public synchronized boolean drawFromBag(BlackBag bBag){
+<span class="fc" id="L142">			List&lt;Integer&gt; playerPebbles = loadPebbles(FILE_STORAGE_LOCATION);</span>
+<span class="fc" id="L143">			int newPebble = bBag.takeRandomPebble();</span>
+<span class="pc bpc" id="L144" title="1 of 2 branches missed.">			if (newPebble != -1){</span>
+<span class="fc" id="L145">				playerPebbles.add(newPebble);</span>
+<span class="fc" id="L146">				savePebbles(playerPebbles, FILE_STORAGE_LOCATION);</span>
+
+<span class="fc" id="L148">				writeDrawToFile(FILE_OUTPUT_LOCATION, FILE_STORAGE_LOCATION, newPebble, bBag, playerNum);</span>
+<span class="fc" id="L149">				return true;</span>
+			} 
+<span class="nc" id="L151">			return false;</span>
+		}
+
+		public synchronized void discardPebble(int weight, WhiteBag wBag){
+
+<span class="fc" id="L156">			List&lt;Integer&gt; playerPebbles = loadPebbles(FILE_STORAGE_LOCATION);</span>
+
+<span class="fc" id="L158">			wBag.addPebble(weight);</span>
+
+<span class="fc" id="L160">			int weightIndex = playerPebbles.indexOf(weight);</span>
+
+
+<span class="fc" id="L163">			playerPebbles.remove(weightIndex);</span>
+<span class="fc" id="L164">			savePebbles(playerPebbles, FILE_STORAGE_LOCATION);</span>
+
+<span class="fc" id="L166">			writeDiscardToFile(FILE_OUTPUT_LOCATION, FILE_STORAGE_LOCATION, weight, wBag, playerNum);</span>
+<span class="fc" id="L167">		}</span>
+		
+		public synchronized Boolean checkWeight(){
+<span class="fc" id="L170">			List&lt;Integer&gt; playerPebbles = loadPebbles(FILE_STORAGE_LOCATION);</span>
+<span class="fc" id="L171">			int totalWeight = 0;</span>
+			
+<span class="fc bfc" id="L173" title="All 2 branches covered.">			for(int weight: playerPebbles){</span>
+<span class="fc" id="L174">				totalWeight += weight;</span>
+<span class="fc" id="L175">			}</span>
+			
+<span class="fc bfc" id="L177" title="All 2 branches covered.">			if(totalWeight == 100){</span>
+<span class="fc" id="L178">				doneFlag.set(true);</span>
+<span class="fc" id="L179">				return true;</span>
+			}
+<span class="fc" id="L181">			return false;</span>
+		}
+	
+	}
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

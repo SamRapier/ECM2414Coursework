@@ -10,10 +10,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-/**
- *
- * @author samra
- */
+
 public class PebbleGame {
 
 	/**
@@ -109,7 +106,8 @@ public class PebbleGame {
 
 		public void run(){
 			Random rand = new Random();
-			// check totalWeight of bag
+			// check totalWeight of bag and the doneFlag
+			// if the doneFlag is set then one of the threads has completed and reached a total weight of 100
 			while (!checkWeight() && !doneFlag.get()) {		
 			
 				// choose pebble to discrad
@@ -139,41 +137,61 @@ public class PebbleGame {
 		}
 
 		public synchronized boolean drawFromBag(BlackBag bBag){
+			// load the pebbles into an arraylist from the file
 			List<Integer> playerPebbles = loadPebbles(FILE_STORAGE_LOCATION);
+
+			// take a random pebble from the black bag
 			int newPebble = bBag.takeRandomPebble();
+
+			// if newPebble is -1, then the black bag is empty and cannot be replenished
 			if (newPebble != -1){
+				// add the new pebble to the array list
 				playerPebbles.add(newPebble);
+				// save the array list to the file
 				savePebbles(playerPebbles, FILE_STORAGE_LOCATION);
 
+				// write the output stream to the file
 				writeDrawToFile(FILE_OUTPUT_LOCATION, FILE_STORAGE_LOCATION, newPebble, bBag, playerNum);
+				
+				// return true since a pebble was drawn
 				return true;
 			} 
+			// return false since the pebble could not be retrieved
 			return false;
 		}
 
 		public synchronized void discardPebble(int weight, WhiteBag wBag){
-
+			// load the pebbles from the file into an arryalist
 			List<Integer> playerPebbles = loadPebbles(FILE_STORAGE_LOCATION);
 
+			// add the weigth provided into the white bag
 			wBag.addPebble(weight);
 
+			// get the index of the weight in the pebble array
 			int weightIndex = playerPebbles.indexOf(weight);
 
-
+			// remove the variable at that point in the index
 			playerPebbles.remove(weightIndex);
+
+			// save the pebble array to the file
 			savePebbles(playerPebbles, FILE_STORAGE_LOCATION);
 
+			// write the output stream to file
 			writeDiscardToFile(FILE_OUTPUT_LOCATION, FILE_STORAGE_LOCATION, weight, wBag, playerNum);
 		}
 		
 		public synchronized Boolean checkWeight(){
+			// load the pebbles from the file into an arraylist
 			List<Integer> playerPebbles = loadPebbles(FILE_STORAGE_LOCATION);
+			// initialise totalWeight
 			int totalWeight = 0;
 			
+			// for each pebble in the array, add the weight to the total weight
 			for(int weight: playerPebbles){
 				totalWeight += weight;
 			}
 			
+			// if the total weight is equal to 100, return true and set the doneFlag to true
 			if(totalWeight == 100){
 				doneFlag.set(true);
 				return true;

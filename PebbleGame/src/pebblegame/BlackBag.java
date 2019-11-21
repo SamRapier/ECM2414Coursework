@@ -50,22 +50,29 @@ public class BlackBag extends FileHelpers
         savePebbles(blackBagPebbles, STORAGE_FILE_LOCATION);
     }
     
-    // @Override
     public synchronized int takeRandomPebble(){   
+		// if there are no pebbles in the black bag then replenish the black bag
 		if (getTotalNumPebbles() <= 0){
 			replenishPebbles();
 		}
+		// if there are still no pebbles in the black bag then skip code block and return -1
 		if (getTotalNumPebbles() > 0){
 
+			// load the bag into an arraylist 
 			List<Integer> blackBagPebbles = loadPebbles(STORAGE_FILE_LOCATION); 
 
+			// get a random number between 0 and the size of the bag
 			int rnd = random.nextInt(blackBagPebbles.size());
 
+			// get the weight from the black bag where the index matches the random number, remove this from the array list
 			int randomWeight = (int) blackBagPebbles.remove(rnd);
 
+			// save the pebbles to the file
 			savePebbles(blackBagPebbles, STORAGE_FILE_LOCATION);
+			// return the random weight
 			return randomWeight;
 		} else {
+			// if the bag could not be replenished then both white and black bags are empty
 			System.out.println("another bag must be chosen");
 			return -1;
 		}
@@ -73,6 +80,7 @@ public class BlackBag extends FileHelpers
     }
     
     public synchronized void replenishPebbles(){
+		// work out the white bag letter that is linked with the current black bag
 		char wBagLetter = '_';
 
 		if (bagLetter == 'X'){
@@ -83,15 +91,21 @@ public class BlackBag extends FileHelpers
 			wBagLetter = 'C';
 		} 
 
+		// get the white bag file location
 		String wBagFileLocation = "wBag" + wBagLetter + "_file.csv";
 
+		// load the white bag into an array list
 		List<Integer> pebbleArr = loadPebbles(wBagFileLocation);
+		// save the contents of the white bag into the black bag file location
 		savePebbles(pebbleArr, STORAGE_FILE_LOCATION);
+		// empty the white bag
 		emptyFile(wBagFileLocation);
     }
     
-    public synchronized int getTotalNumPebbles() {        
+    public synchronized int getTotalNumPebbles() { 
+		// load the black bag into an arraylist
 		List<Integer> blackBagPebbles = loadPebbles(STORAGE_FILE_LOCATION); 
+		// return the size of the arraylist as this will give the number of pebbles
         return blackBagPebbles.size();
     }
 }
