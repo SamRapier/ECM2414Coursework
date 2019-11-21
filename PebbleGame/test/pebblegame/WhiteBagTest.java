@@ -28,7 +28,7 @@ public class WhiteBagTest {
      */
     @Test
     public void testAddPebble() {
-        System.out.println("addPebble");
+        System.out.println("Test addPebble");
         int newPebbleWeight = 15;
         
         // adds a pebble of weight 15 to the bag
@@ -41,6 +41,7 @@ public class WhiteBagTest {
 
         // checks if the last result in the array is equal to the new pebble weight
         assertEquals(newPebbleWeight, result);
+		System.out.println("    Test passed");
     }
 	    
 }

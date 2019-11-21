@@ -240,5 +240,6 @@ public class PebbleGameTest {
 		player.savePebbles(playerArr, player.FILE_STORAGE_LOCATION);
 		// run the check weight function, if it outputs false then it is correct as the total weight is not 100
 		assertFalse(player.checkWeight());
+		System.out.println("    Test passed");
 	}    
 }
